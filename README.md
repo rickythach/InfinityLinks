@@ -1,6 +1,6 @@
-# InfinityLinks 🌌 by Ricky Thach
+# InfinityLinks 🌌
 
-InfinityLinks is a minimalist and responsive **open-source link hub**, similar to Linktree but fully customizable. It features a **background video on desktop**, a **GIF on mobile**, and an intuitive UI for sharing all your important links.
+InfinityLinks is a minimalist and responsive **open-source link hub**, similar to Linktree but fully customizable. It features a **background video on desktop**, a **GIF on mobile**, and an intuitive UI for sharing all your important links. This is created by Ricky Thach.
 
 ## 🚀 Features
 - 🎥 **Background Video (Desktop)**
