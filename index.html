@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>drix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon"/>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Background Video */
+        #vid {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Centered UI */
+        #center {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        /* Title */
+        #center p {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Profile Picture */
+        #profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 10px;
+        }
+
+        /* Biography */
+        #bio {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        /* Links */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .links a i {
+            font-size: 20px;
+        }
+
+        .links a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+            color: #ffcc00;
+        }
+
+        /* Mute/Unmute Button */
+        #mute-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 400;
+            z-index: 1002;
+            transition: 0.3s;
+            display: block;
+        }
+
+        #mute-btn:hover {
+            background: rgba(0, 0, 0, 1);
+        }
+
+        /* Coded by Ricky Thach */
+        #coded-by {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 1001;
+            text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        /* Glow Effect */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00;
+            }
+            100% {
+                text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+            }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            #center {
+                width: 90%;
+                padding: 20px;
+            }
+
+            #profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+
+            #coded-by {
+                font-size: 14px;
+            }
+
+            #mute-btn {
+                bottom: 15px;
+                right: 15px;
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video id="vid" playsinline autoplay loop muted>
+        <source src="bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Centered Content -->
+    <div id="center">
+        <p>drix</p>
+
+        <!-- Profile Picture -->
+        <img id="profile-pic" src="profile.jpg" alt="Ricky Thach">
+
+        <div id="bio">
+            Hey, I’m Ricky, a <span id="age"></span>-year-old Aquarius with a life path number of 9.  
+            I’m deeply spiritual and always searching for meaning in the universe.  
+            I express myself through music and poetry, and I have a strong passion for Bitcoin, seeing it  
+            as more than just an asset—it’s a revolution.  
+            Whether I’m creating, exploring new ideas, or chasing synchronicities,  
+            I’m all about growth, connection, and purpose.
+        </div>
+
+        <!-- Social Links -->
+        <div class="links">
+            <a target="_blank" href="https://instagram.com/ricky_thach">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a target="_blank" href="https://x.com/Ricky_Thach">
+                <i class="fa-brands fa-x-twitter"></i> Twitter
+            </a>
+            <a target="_blank" href="https://steamcommunity.com/id/ricky_thach/">
+                <i class="fa-brands fa-steam"></i> Steam
+            </a>
+            <a target="_blank" href="https://discord.gg/KVPvYQcC3G">
+                <i class="fa-brands fa-discord"></i> Discord
+            </a>
+            <a target="_blank" href="https://www.twitch.tv/drixog">
+                <i class="fa-brands fa-twitch"></i> Twitch
+            </a>
+        </div>
+    </div>
+
+    <!-- Mute/Unmute Button -->
+    <button id="mute-btn">🔊 Unmute</button>
+
+    <!-- Coded by Ricky Thach -->
+    <div id="coded-by">Coded by Ricky Thach</div>
+
+    <script>
+        var video = document.getElementById("vid");
+        var muteBtn = document.getElementById("mute-btn");
+
+        video.volume = 0.5;
+        video.muted = true;
+
+        function toggleAudio() {
+            video.muted = !video.muted;
+            muteBtn.innerHTML = video.muted ? "🔊 Unmute" : "🔇 Mute";
+        }
+
+        document.addEventListener("click", toggleAudio);
+        muteBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            toggleAudio();
+        });
+
+        document.getElementById("age").textContent = new Date().getFullYear() - 2001;
+    </script>
+
+</body>
+</html>
