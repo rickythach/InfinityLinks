@@ -2,6 +2,8 @@
 
 InfinityLinks is a minimalist and responsive **open-source link hub**, similar to Linktree but fully customizable. It features a **background video on desktop**, a **GIF on mobile**, and an intuitive UI for sharing all your important links.
 
+Made by Ricky Thach
+
 ## 🚀 Features
 - 🎥 **Background Video (Desktop)**
 - 🎞 **Background GIF (Mobile)**
@@ -42,6 +44,7 @@ You can host InfinityLinks easily using:
 🤝 Contributing
 
 Fork this repo and send a pull request if you have improvements! All contributions are welcome.
+
 📜 License
 
 InfinityLinks is open-source under the MIT License.
